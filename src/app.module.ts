@@ -1,12 +1,15 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypegooseModule } from 'nestjs-typegoose';
+import { NedbModule } from '@hungtcs-box/nest-nedb';
 import { DoctorModule } from './doctor/doctor.module';
+import { join } from "path";
+
+const homedir = require('os').homedir();
 
 @Module({
   imports: [
-    TypegooseModule.forRoot("mongodb://localhost:27017/econsult", { useNewUrlParser: true, useUnifiedTopology: true }),
+    NedbModule.forRoot(join(homedir, '.econsult', 'data')),
     DoctorModule
   ],
   controllers: [AppController],

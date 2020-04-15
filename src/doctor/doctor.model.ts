@@ -1,23 +1,14 @@
-import { prop } from "@typegoose/typegoose";
-export class Doctor {
-    @prop()
+import { Model } from '@hungtcs-box/nest-nedb';
+
+export class Doctor extends Model {
     approved: boolean;
-    @prop()
     emergencyCasesOnly: boolean;
-    @prop()
     email: string;
-    @prop()
     medicalCouncilRegistration: string;
-    @prop()
     name: string;
-    @prop()
     phone: string;
-    @prop()
     qualifications: string;
-    @prop()
     specialization: string;
-    @prop()
     state: string;
-    @prop()
     telegramID: string;
 }
